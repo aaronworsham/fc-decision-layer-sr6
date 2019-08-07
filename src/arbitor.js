@@ -3,34 +3,37 @@
 module.exports.decideHitOrMiss = decideHitOrMiss;
 const actionLayer = require('fc-action-layer-sr6');
 
-function decideHitOrMiss(options){
+function decideHitOrMiss(actionBundle){
 	/*
-	options
+	actionBundle
 		.attacker
-			poolSize - dice in their pool
-			explode - do 6s explode
-			threshold - number to judge hits by
-		.defender
-			poolSize - dice in their pool
-			explode - do 6s explode
-			threshold - number to judge hits by
+			pool
+				poolSize - dice in their pool
+				explode - do 6s explode
+				threshold - number to judge hits by
+		.target
+			pool
+				poolSize - dice in their pool
+				explode - do 6s explode
+				threshold - number to judge hits by
 	*/
 
-	var attackerRolledPool = actionLayer.rollForHits(options.attacker)
-	var defenderRolledPool = actionLayer.rollForHits(options.defender)
-	var actionBundle = {
-		decision: {},
+	var attackerRolledPool = actionLayer.rollForHits(actionBundle.attacker.pool)
+	var targetRolledPool = actionLayer.rollForHits(actionBundle.target.pool)
+	var decision = {
 		attackerRolledPool: attackerRolledPool,
-		defenderRolledPool: defenderRolledPool,
+		targetRolledPool: targetRolledPool,
 	}
 
 
-	if (attackerRolledPool.hits >= defenderRolledPool.hits) {
-		actionBundle.decision.hit = true
+	if (attackerRolledPool.hits >= targetRolledPool.hits) {
+		decision.hit = true
+		decision.netHits = attackerRolledPool.hits - targetRolledPool.hits
 	}
 	else {
-		actionBundle.decision.hit = false
+		decision.hit = false
+		decision.netHits = targetRolledPool.hits - attackerRolledPool.hits
 	}
-	return actionBundle;
+	return decision;
 
 }
