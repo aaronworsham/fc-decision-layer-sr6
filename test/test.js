@@ -4,43 +4,6 @@ var expect = require('chai').expect;
 var decisionLayer = require('../index');
 
 
-/*
-actionBundle
-    .attacker
-        stats
-            skills
-                firearms
-            attributes
-                agility
-        weapon
-            attackRating
-            smartlink
-        ammo
-        gear
-            bonusAR
-        pool
-            poolSize - dice in their pool
-            explode - do 6s explode
-            threshold - number to judge hits by
-    .target
-        stats
-            skills
-                firearms
-            attributes
-                agility
-                body
-                intuition
-                reaction
-            gear
-                bonusDR
-        pool
-            poolSize - dice in their pool
-            explode - do 6s explode
-            threshold - number to judge hits by
-*/
-
-
-
 describe('A basic attack Decision', function() {
     it('should decide a hit', function() {
     	var options = {
@@ -111,7 +74,6 @@ describe('A shooting Decision', function(){
         }
 
         var actionBundle = decisionLayer.shootingActionHitOrMiss(options)
-        console.log(actionBundle);
         expect(actionBundle.decision).to.exist;
     })
 }) 

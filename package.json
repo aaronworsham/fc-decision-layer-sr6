@@ -1,7 +1,7 @@
 {
-  "name": "fc-decision-layer-sr6",
-  "version": "1.0.0",
-  "description": "Decision Layer for Faithful Companion SR6",
+  "name": "advcomp-decision-sr",
+  "version": "1.0.1",
+  "description": "Decision Layer for Adventure Companions SR",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,6 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.2.0",
-    "fc-action-layer-sr6": ""
+    "advcomp-action-sr": ""
   }
 }

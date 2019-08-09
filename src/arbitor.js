@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports.decideHitOrMiss = decideHitOrMiss;
-const actionLayer = require('fc-action-layer-sr6');
+const actionLayer = require('advcomp-action-sr');
 
 function decideHitOrMiss(actionBundle){
 	/*
