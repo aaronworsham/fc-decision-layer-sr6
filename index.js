@@ -6,6 +6,8 @@ const arbitor = require('./src/arbitor');
 
 module.exports = {
   decideHitOrMiss: arbitor.decideHitOrMiss,
-  shootingActionHitOrMiss: shooting.shootingActionHitOrMiss
+  shootingActionHitOrMiss: shooting.shootingActionHitOrMiss,
+  buildAttackerShootingPool: shooting.buildAttackerShootingPool,
+  buildTargetShootingPool: shooting.buildtargetShootingPool,
 }
 

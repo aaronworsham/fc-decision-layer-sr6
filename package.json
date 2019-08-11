@@ -1,6 +1,6 @@
 {
   "name": "advcomp-decision-sr",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Decision Layer for Adventure Companions SR",
   "main": "index.js",
   "scripts": {
