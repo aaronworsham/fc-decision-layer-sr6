@@ -42,8 +42,8 @@ function shootingActionHitOrMiss(actionBundle){
 
 	//ATTACKER
 	var attackerPoolSize = (
-		actionBundle.attacker.stats.skills.firearms +
-		actionBundle.attacker.stats.attributes.agility
+		actionBundle.attacker.skills.firearms +
+		actionBundle.attacker.attributes.agility
 	)
 
 	actionBundle.attacker.pool = {
@@ -54,8 +54,8 @@ function shootingActionHitOrMiss(actionBundle){
 
 	//TARGET
 	var targetPoolSize = (
-		actionBundle.target.stats.attributes.reaction +
-		actionBundle.target.stats.attributes.intuition
+		actionBundle.target.attributes.reaction +
+		actionBundle.target.attributes.intuition
 	);
 
 	actionBundle.target.pool = {

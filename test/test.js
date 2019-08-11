@@ -54,22 +54,19 @@ describe('A shooting Decision', function(){
     it('should have a decision', function(){
         var options = {
           attacker: {
-            stats: {
               skills: {
                 firearms: 3
               },
               attributes: {
                 agility: 3
               },
-            },
+            
           },
           target: {
-            stats: {
               attributes: {
                 reaction: 3,
                 intuition: 3
               }
-            }
           }
         }
 
