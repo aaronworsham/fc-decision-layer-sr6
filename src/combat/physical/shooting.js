@@ -1,44 +1,10 @@
 'use strict';
 
 module.exports.shootingActionHitOrMiss = shootingActionHitOrMiss;
+module.exports.decideShotingPool = decideShotingPool;
 const arbitor = require('../../arbitor');
 
-function shootingActionHitOrMiss(actionBundle){
-	/*
-	actionBundle
-		.attacker
-			stats
-				skills
-					firearms
-				attributes
-					agility
-			weapon
-				attackRating
-				smartlink
-			ammo
-			gear
-				bonusAR
-			pool
-				poolSize - dice in their pool
-				explode - do 6s explode
-				threshold - number to judge hits by
-		.target
-			stats
-				skills
-					firearms
-				attributes
-					agility
-					body
-					intuition
-					reaction
-				gear
-					bonusDR
-			pool
-				poolSize - dice in their pool
-				explode - do 6s explode
-				threshold - number to judge hits by
-	*/
-
+function decideShotingPool(actionBundle){
 
 	//ATTACKER
 	var attackerPoolSize = (
@@ -64,7 +30,14 @@ function shootingActionHitOrMiss(actionBundle){
 		threshold: 4
 	};
 
-	var decision = arbitor.decideHitOrMiss(actionBundle);
+	return actionBundle;
+
+}
+
+function shootingActionHitOrMiss(actionBundle){
+
+
+	var decision = arbitor.decideHitOrMiss(decideShotingPool(actionBundle));
 	actionBundle.decision = decision;
 
 	return actionBundle;
