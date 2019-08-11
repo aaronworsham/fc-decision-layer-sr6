@@ -2,10 +2,12 @@
 
 module.exports.shootingActionHitOrMiss = shootingActionHitOrMiss;
 module.exports.decideShotingPool = decideShotingPool;
+module.exports.buildAttackerShootingPool = buildAttackerShootingPool
+module.exports.buildTargetShootingPool = buildTargetShootingPool
+
 const arbitor = require('../../arbitor');
 
-function decideShotingPool(actionBundle){
-
+function buildAttackerShootingPool(actionBundle){
 	//ATTACKER
 	var attackerPoolSize = (
 		actionBundle.attacker.skills.firearms +
@@ -18,6 +20,11 @@ function decideShotingPool(actionBundle){
 		threshold: 4
 	};
 
+	return actionBundle
+
+}
+
+function buildTargetShootingPool(actionBundle){
 	//TARGET
 	var targetPoolSize = (
 		actionBundle.target.attributes.reaction +
@@ -29,6 +36,14 @@ function decideShotingPool(actionBundle){
 		explode: false,
 		threshold: 4
 	};
+
+	return actionBundle
+}
+
+function decideShotingPool(actionBundle){
+
+	buildAttackerShootingPool(actionBundle)
+	buildTargetShootingPool(actionBundle)
 
 	return actionBundle;
 
